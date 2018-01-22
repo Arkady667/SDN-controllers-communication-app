@@ -1,0 +1,9 @@
+1. mininet two controllers
+
+ https://wiki.opendaylight.org/view/OpenDaylight_OpenFlow_Plugin::Mininet_with_multiple_controllers
+ https://github.com/mininet/mininet/blob/master/examples/controllers2.py
+
+2. ODL rest python
+
+https://github.com/dwcarder/python-OpenDaylight/blob/master/OpenDaylight.py
+https://github.com/smakam/odl/blob/master/odl_rest.py
