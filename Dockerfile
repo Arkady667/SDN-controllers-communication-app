@@ -35,7 +35,14 @@ RUN cd /root/openvswitch-2.7.1 && ./configure && make && make install
 ENV PATH=$PATH:/usr/local/share/openvswitch/scripts
 
 # OpenDayLight
-COPY odl /home/student/odl
+#COPY odl /home/student/odl
+
+# Ryu
+RUN add-apt-repository ppa:jonathonf/python-3.6 && \
+	apt-get update -y && \
+	apt-get install python3.6 -y && \
+	apt-get install gcc python-dev libffi-dev libssl-dev libxml2-dev libxslt1-dev zlib1g-dev -y
+RUN apt-get install python-pip -y && pip install ryu 
 
 #Eclipse-install
 COPY eclipse /home/student/eclipse
@@ -96,3 +103,7 @@ CMD service ssh start && service apache2 start && ovs-ctl start && bash
 
 #JAVA fix
 RUN update-alternatives --set java /opt/jdk8/jdk1.8.0_161/bin/java
+
+# Verification
+RUN pip -V
+RUN pip install --ignore-installed six
