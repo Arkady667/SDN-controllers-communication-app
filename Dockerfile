@@ -27,6 +27,8 @@ RUN update-alternatives --install /usr/bin/java java /opt/jdk8/jdk1.8.0_161/bin/
 
 #Mininet-install
 COPY mininet /root/mininet
+RUN apt-get update && \
+    apt-get upgrade -y  
 RUN cd /root/mininet && util/install.sh -nf
 
 #OVS-install
@@ -107,3 +109,10 @@ RUN update-alternatives --set java /opt/jdk8/jdk1.8.0_161/bin/java
 # Verification
 RUN pip -V
 RUN pip install --ignore-installed six
+
+# Project
+COPY rest-app /home/student/rest-app
+
+# Firefox
+RUN sudo apt-get update && \
+	sudo apt-get install firefox -y
